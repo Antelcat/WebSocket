@@ -4,6 +4,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antelcat.AspNetCore.WebSock
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antelcat.WebSocket.TestWeb", "Antelcat.WebSocket.TestWeb\Antelcat.WebSocket.TestWeb.csproj", "{D83F82F4-96EA-45C3-819D-C4A966AA306C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{E13481CA-23FC-4D2B-A10C-940404FCA605}"
+	ProjectSection(SolutionItems) = preProject
+		..\build\Build.props = ..\build\Build.props
+		..\docs\Icon.png = ..\docs\Icon.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

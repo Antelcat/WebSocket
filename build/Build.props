@@ -1,0 +1,34 @@
+<Project>
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>0.1.0</Version>
+        <Authors>Antelcat</Authors>
+        <Copyright>Copyright Antelcat. All rights reserved</Copyright>
+        <PackageProjectUrl>https://github.com/Antelcat/WebSocket</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Antelcat/WebSocket.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageIcon>Icon.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageReleaseNotes>Autowired type filter</PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\docs\Icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+            <Link>Icon.png</Link>
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+            <Link>README.md</Link>
+        </None>
+    </ItemGroup>
+    
+    <Target Condition="$(SolutionName) == 'Antelcat.WebSocket'" Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="copy $(ProjectDir)bin\Debug\*.nupkg ..\..\build\ /Y" />
+    </Target>
+
+</Project>
