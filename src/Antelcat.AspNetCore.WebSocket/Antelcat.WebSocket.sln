@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antelcat.AspNetCore.WebSocket", "Antelcat.AspNetCore.WebSocket\Antelcat.AspNetCore.WebSocket.csproj", "{1118077F-A751-46F2-A604-4BEBFC255753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antelcat.WebSocket.TestWeb", "Antelcat.WebSocket.TestWeb\Antelcat.WebSocket.TestWeb.csproj", "{D83F82F4-96EA-45C3-819D-C4A966AA306C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1118077F-A751-46F2-A604-4BEBFC255753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1118077F-A751-46F2-A604-4BEBFC255753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1118077F-A751-46F2-A604-4BEBFC255753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1118077F-A751-46F2-A604-4BEBFC255753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D83F82F4-96EA-45C3-819D-C4A966AA306C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83F82F4-96EA-45C3-819D-C4A966AA306C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83F82F4-96EA-45C3-819D-C4A966AA306C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83F82F4-96EA-45C3-819D-C4A966AA306C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

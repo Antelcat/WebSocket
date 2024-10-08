@@ -1,0 +1,6 @@
+@Antelcat.WebSocket.TestWeb_HostAddress = http://localhost:5073
+
+GET {{Antelcat.WebSocket.TestWeb_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
