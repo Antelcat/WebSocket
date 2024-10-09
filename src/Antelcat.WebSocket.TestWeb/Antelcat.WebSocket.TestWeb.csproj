@@ -15,4 +15,10 @@
       <ProjectReference Include="..\Antelcat.AspNetCore.WebSocket\Antelcat.AspNetCore.WebSocket.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="index.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

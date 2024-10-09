@@ -1,0 +1,23 @@
+﻿<html>
+<head>
+    <title>Antelcat.WebSocket</title>
+    <script>
+        const socket = new WebSocket('/WebSocket')
+        socket.onmessage = (message) => {
+            alert(message.data)
+        }
+        socket.onopen = () => {
+            document.getElementById('send').addEventListener('click', () => {
+                const value = document.getElementById('input').value
+                socket.send(value)
+            })
+        }
+    </script>
+</head>
+<body>
+<div>
+    <h1>Antelcat.WebSocket</h1>
+    <input type="text" id="input"/> <input type="button" id="send" value="发送">
+</div>
+</body>
+</html>

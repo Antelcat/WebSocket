@@ -2,9 +2,8 @@
 using System.Reflection;
 using Antelcat.AutoGen.ComponentModel.Diagnostic;
 
-namespace Antelcat.AspNetCore.WebSocket;
-
-[AutoMetadataFrom(typeof(WebSocketCloseStatus), MemberTypes.Field,
+[assembly: AutoMetadataFrom(typeof(WebSocketCloseStatus), MemberTypes.Field,
+    Leading = "namespace Antelcat.AspNetCore.WebSocket.Exceptions;",
     Template = """
                ///<summary>
                /// <inheritdoc cref="System.Net.WebSockets.WebSocketCloseStatus.{Name}"/>
@@ -12,6 +11,9 @@ namespace Antelcat.AspNetCore.WebSocket;
                public class {Name}Exception(string? message) : Exception(message);
                """
 )]
+
+namespace Antelcat.AspNetCore.WebSocket.Extensions;
+
 [AutoMetadataFrom(typeof(WebSocketCloseStatus), MemberTypes.Field,
     Leading = """
               public static Exception? ToException(
@@ -23,10 +25,10 @@ namespace Antelcat.AspNetCore.WebSocket;
               """,
     Template = """
                 System.Net.WebSockets.WebSocketCloseStatus.{Name} => 
-                new {Name}Exception(result.CloseStatusDescription),
+                new Antelcat.AspNetCore.WebSocket.Exceptions.{Name}Exception(result.CloseStatusDescription),
                """,
     Trailing = """
                _ => null };
                """
 )]
-public static partial class Exceptions;
+public static partial class ExceptionExtensions;

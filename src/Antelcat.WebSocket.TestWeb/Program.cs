@@ -1,3 +1,5 @@
+using System.Net.Mime;
+using System.Text;
 using Antelcat.WebSocket.TestWeb;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,5 +22,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseWebSockets();
 app.MapWebSocket<SampleWebSocketClient>("/WebSocket");
+app.MapGet("/", () => Results.Content(File.ReadAllText("./index.html"), MediaTypeNames.Text.Html, Encoding.UTF8));
 app.Run();
 

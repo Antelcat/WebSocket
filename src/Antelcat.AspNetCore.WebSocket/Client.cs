@@ -1,9 +1,28 @@
 ﻿using System.Net.WebSockets;
+using System.Reflection;
+using Antelcat.AutoGen.ComponentModel.Diagnostic;
 
 namespace Antelcat.AspNetCore.WebSocket;
 
 [Serializable]
-public abstract class Client : IDisposable
+[AutoMetadataFrom(typeof(WebSocketCloseStatus), MemberTypes.Field,
+    Leading = """
+              /// <summary>
+              /// </summary>
+              /// <param name="exception"> One of
+              """,
+    Template = """
+               
+               /// <p><see cref="Antelcat.AspNetCore.WebSocket.Exceptions.{Name}Exception"/></p>
+               """,
+    Trailing = """
+               
+               /// </param>
+               /// <returns></returns>
+               protected internal virtual partial Task OnDisconnectedAsync(Exception? exception);
+               """
+)]
+public abstract partial class Client : IDisposable
 {
     private bool disposed;
     
@@ -42,11 +61,8 @@ public abstract class Client : IDisposable
 
     protected internal virtual Task OnReceivedTextAsync(string text, CancellationToken token) => Task.CompletedTask;
 
-    /// <summary>
-    /// </summary>
-    /// <param name="exception"><see cref="Exceptions"/></param>
-    /// <returns></returns>
-    protected internal virtual Task OnDisconnectedAsync(Exception? exception) => Task.CompletedTask;
+    
+    protected internal virtual partial Task OnDisconnectedAsync(Exception? exception) => Task.CompletedTask;
 
     public void Dispose()
     {

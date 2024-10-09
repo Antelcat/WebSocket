@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{E13481CA-23FC-4D
 	ProjectSection(SolutionItems) = preProject
 		..\build\Build.props = ..\build\Build.props
 		..\docs\Icon.png = ..\docs\Icon.png
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Global

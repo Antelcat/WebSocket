@@ -11,7 +11,7 @@
         <PackageIcon>Icon.png</PackageIcon>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageReleaseNotes>Autowired type filter</PackageReleaseNotes>
+        <PackageReleaseNotes>Initial</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
