@@ -1,10 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Net.WebSockets;
 using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using Antelcat.AspNetCore.WebSocket;
-using Antelcat.AspNetCore.WebSocket.Extensions;
 using Antelcat.AspNetCore.WebSocket.Internals;
 
 // ReSharper disable once CheckNamespace
@@ -32,7 +28,6 @@ public static class WebSocketExtensions
     /// <param name="builder"></param>
     /// <param name="pattern"></param>
     /// <param name="options"></param>
-    /// <param name="scheduler"></param>
     /// <typeparam name="TClient"></typeparam>
     /// <returns></returns>
     public static
@@ -44,8 +39,7 @@ public static class WebSocketExtensions
         MapWebSocket<TClient>(
             this IEndpointRouteBuilder builder,
             [StringSyntax("Route")] string pattern,
-            Antelcat.AspNetCore.WebSocket.WebSocketOptions? options = null,
-            Func<TaskScheduler>? scheduler = null)
+            Antelcat.AspNetCore.WebSocket.WebSocketOptions? options = null)
         where TClient : Client
     {
         return builder.Map(pattern,
@@ -68,11 +62,8 @@ public static class WebSocketExtensions
                 using var webSocket = await context.WebSockets.AcceptWebSocketAsync();
                 client.Context = new WebSocketCallerContext(context, webSocket);
                 await client.OnConnectedAsync();
-                await client.Echo(webSocket,
-                    options ?? new Antelcat.AspNetCore.WebSocket.WebSocketOptions(),
-                    scheduler?.Invoke());
+                await client.Handle(webSocket, options ?? new Antelcat.AspNetCore.WebSocket.WebSocketOptions());
             }));
     }
 
-    
 }

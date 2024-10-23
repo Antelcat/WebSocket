@@ -8,7 +8,7 @@ using Antelcat.AutoGen.ComponentModel.Diagnostic;
                ///<summary>
                /// <inheritdoc cref="System.Net.WebSockets.WebSocketCloseStatus.{Name}"/>
                ///</summary>
-               public class {Name}Exception(string? message) : Exception(message);
+               public class {Name}Exception(string? message) : WebSocketException(System.Net.WebSockets.WebSocketCloseStatus.{Name}, message);
                """
 )]
 
@@ -28,7 +28,7 @@ namespace Antelcat.AspNetCore.WebSocket.Extensions;
                 new Antelcat.AspNetCore.WebSocket.Exceptions.{Name}Exception(result.CloseStatusDescription),
                """,
     Trailing = """
-               _ => null };
+               _ => new Antelcat.AspNetCore.WebSocket.Exceptions.CustomWebSocketException(result.CloseStatus.Value ,result.CloseStatusDescription) };
                """
 )]
 public static partial class ExceptionExtensions;

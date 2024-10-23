@@ -8,6 +8,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>preview</LangVersion>
+        <Version>0.1.2</Version>
+        <PackageReleaseNotes>Change handler to loop Open</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
