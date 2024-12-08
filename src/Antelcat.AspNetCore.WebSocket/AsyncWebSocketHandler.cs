@@ -83,8 +83,8 @@ public class AsyncWebSocketHandler
 
                             goto next;
                         case WebSocketMessageType.Text:
-                            Span<byte> span;
-                            if (data.Count == 0) span = new Span<byte>(buffer, 0, length);
+                            string str;
+                            if (data.Count == 0) str = Encoding.UTF8.GetString(new Span<byte>(buffer, 0, length));
                             else
                             {
 #if NET8_0_OR_GREATER
@@ -92,10 +92,10 @@ public class AsyncWebSocketHandler
 #else
                                 data.AddRange(buffer.Take(length));
 #endif
-                                span = CollectionsMarshal.AsSpan(data);
+                                str = Encoding.UTF8.GetString(CollectionsMarshal.AsSpan(data));
                             }
 
-                            Text?.Invoke(Encoding.UTF8.GetString(span), cancel.Token);
+                            Text?.Invoke(str, cancel.Token);
                             goto next;
                     }
                 }
